@@ -1,14 +1,14 @@
 @import ./variables
 @import ./classNames
 @import "/node_modules/bootstrap/scss/bootstrap.scss"
-
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap')
 body
   margin: 0
-  font-family: -apple-system, BlinkMacSystemFont
+  font-family: Source Sans Pro,"sans-serif"
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   // -------- If want to change scroll bar ----------
-  // overflow-x: hidden
+  overflow-x: hidden
   // &.notScrollBar
   //   &::-webkit-scrollbar
   //     width: 0
@@ -24,7 +24,12 @@ body
 
   // &::-webkit-scrollbar-thumb
   //   background-color: #0057ff99
-  //   border-radius: 20px
+  //   border-radius:
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
+h3, h4, h5, h6
+  color: #606770
 
 a
   text-decoration: none !important
