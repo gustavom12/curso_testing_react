@@ -8,9 +8,8 @@ function Navbar ({toggleSideBar}:{toggleSideBar:any}){
         onClick={()=>{toggleSideBar((val:any)=>!val)}}
       ></button>
       <div className="d-flex">
-        <div className="logo bg-primary fw-bold">
-        </div>
-        <h1 className="m-0">Title</h1>
+        <img src="https://i.ibb.co/JprDdjt/octopus-64x64.png" alt="" className="logo"/>
+        <h2 className="m-0 flex"> Curso React Testing Library </h2>
       </div>
     </nav>
   )

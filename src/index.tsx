@@ -1,17 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './main_styles/index.sass';
-import App from './components/a_mainComponent.tsx/App';
+import App from './pages/app/App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={App} />
-      </Switch>
-    </BrowserRouter>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
