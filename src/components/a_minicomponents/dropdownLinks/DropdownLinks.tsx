@@ -5,7 +5,6 @@ function Dropdown({ children, className, title, link }:
   { children: any, className?: string, title: string, link: string }) {
   const url = useLocation()
   const [sectionDropdown, setSectionDropdown] = useState(url.pathname.includes(link))
-  console.log(url.pathname, link)
   return (
     <div className={`DropdownLinks ${className} ${sectionDropdown && "active"} w-100`}>
       <h5 className="title d-flex justify-content-between w-100" onClick={()=>setSectionDropdown(val=>!val)}>

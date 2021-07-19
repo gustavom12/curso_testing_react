@@ -109,8 +109,7 @@ function Queries() {
         </ul>
         <p>
           <span className="fw-bold mx-1">ByDisplayValue</span>
-          Encuentra por "form" element value
-          find by form element current value
+          Encuentra un "form" element por su valor actual
         </p>
         <ul>
           <li>getByDisplayValue</li>

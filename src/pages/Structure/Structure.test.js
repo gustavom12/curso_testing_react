@@ -9,3 +9,21 @@ test("Nombre del testeo", ()=>{
   //Ya puedes interactuar/testear con los elementos seleccionados
   expect(Title).toBeInTheDocument()
 })
+
+describe("Bloque de múltiples tests", ()=>{
+  test("Nombre del testeo1", ()=>{
+    render(<Structure/>);
+    const Title = screen.getByRole("heading")
+    expect(Title).toBeInTheDocument()
+  })
+  test("Nombre del testeo2", ()=>{
+    render(<Structure/>);
+    const Title = screen.getByText(/titulo/i)
+    expect(Title).toBeInTheDocument()
+  })
+  test("Nombre del testeo3", ()=>{
+    render(<Structure/>);
+    const Title = screen.getByTestId("id")
+    expect(Title).toBeInTheDocument()
+  })
+})

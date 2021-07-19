@@ -1,12 +1,17 @@
 import React, { useEffect, useRef } from "react";
 import Dropdown from "../a_minicomponents/dropdownLinks/DropdownLinks";
 import './Sidebar.sass'
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import useObserver from "../../helpers&hooks/customHooks/useObserver";
 function Sidebar({ sideBar, setSideBar }: { sideBar: any, setSideBar: any }) {
   const modalRef = useRef<any>()
+  const intersectingEl = useObserver("",
+    ["temas", "empezar", "i", "example", "metodos", "cheatsheet", "priority"]
+  )
+  console.log({ intersectingEl })
   useEffect(() => {
     window.addEventListener("click", (e: any) => {
-      if(e.target === modalRef.current){
+      if (e.target === modalRef.current) {
         e.stopPropagation()
         setSideBar((val: boolean) => !val)
       }
@@ -21,54 +26,54 @@ function Sidebar({ sideBar, setSideBar }: { sideBar: any, setSideBar: any }) {
           title="Introducción"
           link="introduction"
         >
-          <NavLink exact className="NavLink w-100" to="/introduction" activeClassName="selected">
-            Inicio
-          </NavLink>
-          <NavLink exact className="NavLink w-100" to="/introduction/temas" activeClassName="selected">
+          <Link
+            className={`Link w-100 ${intersectingEl === "temas" || intersectingEl === "" ? "selected" : null}`}
+            to="/introduction/temas"
+          >
             Temas
-          </NavLink>
-          <NavLink exact className="NavLink w-100" to="/introduction/empezar" activeClassName="selected">
+          </Link>
+          <Link className={`Link w-100 ${intersectingEl === "empezar" && "selected"}`} to="/introduction/empezar">
             Empezar
-          </NavLink>
+          </Link>
         </Dropdown>
         <Dropdown
           title="Estructura"
           link="structure"
         >
-          <NavLink exact className="NavLink w-100" to="/structure/i" activeClassName="selected">
+          <Link className={`Link w-100 ${intersectingEl === "i" && "selected"}`} to="/structure/i">
             Estructura
-          </NavLink>
-          <NavLink exact className="NavLink w-100" to="/structure/example" activeClassName="selected">
+          </Link>
+          <Link className={`Link w-100 ${intersectingEl === "example" && "selected"}`} to="/structure/example">
             Ejemplo
-          </NavLink>
+          </Link>
         </Dropdown>
         <Dropdown
           title="Queries"
           link="queries"
         >
-          <NavLink exact className="NavLink w-100" to="/queries/metodos" activeClassName="selected">
+          <Link className={`Link w-100 ${intersectingEl === "metodos" && "selected"}`} to="/queries/metodos">
             Métodos
-          </NavLink>
-          <NavLink exact className="NavLink w-100" to="/queries/cheatsheet" activeClassName="selected">
+          </Link>
+          <Link className={`Link w-100 ${intersectingEl === "cheatsheet" && "selected"}`} to="/queries/cheatsheet">
             Cheatsheet
-          </NavLink>
-          <NavLink exact className="NavLink w-100" to="/queries/priority" activeClassName="selected">
+          </Link>
+          <Link className={`Link w-100 ${intersectingEl === "priority" && "selected"}`} to="/queries/priority">
             Prioridad
-          </NavLink>
+          </Link>
         </Dropdown>
         <Dropdown
           title="Eventos"
           link="events"
         >
-          <NavLink exact className="NavLink w-100" to="/queries/metodos" activeClassName="selected">
+          <Link className={`Link w-100 ${intersectingEl === "metodos" && "selected"}`} to="/queries/metodos">
             Eventos
-          </NavLink>
-          <NavLink exact className="NavLink w-100" to="/queries/cheatsheet" activeClassName="selected">
+          </Link>
+          <Link className={`Link w-100 ${intersectingEl === "cheatsheet" && "selected"}`} to="/queries/cheatsheet">
             Cheatsheet
-          </NavLink>
-          <NavLink exact className="NavLink w-100" to="/queries/priority" activeClassName="selected">
+          </Link>
+          <Link className={`Link w-100 ${intersectingEl === "" && "selected"}`} to="/queries/priority">
             Prioridad
-          </NavLink>
+          </Link>
         </Dropdown>
       </div>
     </div>
